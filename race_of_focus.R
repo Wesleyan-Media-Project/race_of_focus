@@ -10,7 +10,7 @@ library(purrr)
 
 # Input files
 path_full118m <- "../118m/fb_2020_adid_02282022.csv"
-path_wmpent <- "../wmp_entity_files/Facebook/2020/wmp_fb_entities_v051822.dta"
+path_wmpent <- "../datasets/wmp_entity_files/Facebook/2020/wmp_fb_entities_v051822.dta"
 path_cand <- "../datasets/candidates/cand2020_01012022.csv"
 path_cand_pol <- "../datasets/candidates/face_url_politician.csv"
 # Output files
