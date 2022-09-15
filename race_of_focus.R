@@ -10,6 +10,7 @@ library(purrr)
 
 # Input files
 path_full118m <- "../118m/fb_2020_adid_02282022.csv"
+path_el_results <- "../entity_linking/facebook/data/entity_linking_results_118m_v3_500_notext_combined.csv.gz"
 path_wmpent <- "../datasets/wmp_entity_files/Facebook/2020/wmp_fb_entities_v090622.csv"
 path_cand <- "../datasets/candidates/cand2020_05192022.csv"
 path_cand_pol <- "../datasets/candidates/face_url_politician.csv"
@@ -21,6 +22,11 @@ path_out_csv <- "data/race_of_focus.csv"
 df <- fread(path_full118m, encoding = "UTF-8") %>%
   select(ad_id, pd_id, page_name, region_distribution, detected_entities, aws_face)
 full_size <- nrow(df)
+# Add in entity linking results directly from the EL repo
+el <- fread(path_el_results)
+el <- el[match(df$ad_id, el$ad_id),]
+# Overwrite Jielu's version with my more up-to-date one
+df$detected_entities <- el$detected_entities
 
 # WMP entities file
 wmp_ents <- fread(path_wmpent)
