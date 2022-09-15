@@ -10,7 +10,7 @@ library(purrr)
 
 # Input files
 path_full118m <- "../118m/fb_2020_adid_02282022.csv"
-path_wmpent <- "../datasets/wmp_entity_files/Facebook/2020/wmp_fb_entities_v051822.dta"
+path_wmpent <- "../datasets/wmp_entity_files/Facebook/2020/wmp_fb_entities_v090622.csv"
 path_cand <- "../datasets/candidates/cand2020_05192022.csv"
 path_cand_pol <- "../datasets/candidates/face_url_politician.csv"
 # Output files
@@ -23,7 +23,7 @@ df <- fread(path_full118m, encoding = "UTF-8") %>%
 full_size <- nrow(df)
 
 # WMP entities file
-wmp_ents <- read_dta(path_wmpent)
+wmp_ents <- fread(path_wmpent)
 # Keep only relevant columns
 wmp_ents <- wmp_ents %>% 
   select(pd_id, wmp_spontype, wmp_office_post090120, fecid_formerge)
