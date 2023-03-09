@@ -32,7 +32,7 @@ df$detected_entities <- el$detected_entities
 aws <- fread(path_aws)
 aws <- aws[match(df$ad_id, aws$ad_id),]
 # Overwrite Jielu's version with my more up-to-date one
-df$aws_face <- aws$aws_face
+df$aws_face <- aws$aws_face 
 
 # WMP entities file
 wmp_ents <- fread(path_wmpent)
