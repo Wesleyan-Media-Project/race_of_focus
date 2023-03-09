@@ -148,7 +148,7 @@ df$sub_bucket[df$sub_bucket == "3"] <- "3.2.2.2" # all remaining ones
 # table(df$sub_bucket)
 
 # ----
-# Race of focus
+# Race of focus 
 
 # The following line correctly sets the race of focus for
 # sub-buckets 3.2.2.1, and 3.2.2.2
