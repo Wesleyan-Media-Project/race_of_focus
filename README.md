@@ -8,4 +8,4 @@ Run the script `race_of_focus_140m.R`. By default, the script uses both candidat
 The script uses R (4.2.2). The packages we used are described in `requirements_r.txt`.
 
 ## To-do
-Nothing for now.
+Google 2020, FB and Google 2022.
