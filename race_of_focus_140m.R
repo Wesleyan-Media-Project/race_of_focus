@@ -8,6 +8,10 @@ library(dplyr)
 library(stringr)
 library(purrr)
 
+# Option to use only the text-based fields to decide race of focus
+# Set to False by default
+textonly <- F
+
 # Input files
 path_140m_vars <- "../fb_2020/fb_2020_140m_adid_var1.csv.gz"
 path_el_results <- "../entity_linking/facebook/data/entity_linking_results_140m_notext_combined.csv.gz"
@@ -17,7 +21,9 @@ path_cand <- "../datasets/candidates/cand2020_05192022.csv"
 path_cand_pol <- "../datasets/candidates/face_url_politician.csv"
 # Output files
 path_out_rdata <- "data/race_of_focus_140m.rdata"
+path_out_rdata_textonly <- "data/race_of_focus_140m_textonly.rdata"
 path_out_csv <- "data/race_of_focus_140m.csv"
+path_out_csv_textonly <- "data/race_of_focus_140m_textonly.csv"
 
 # Read 1.40m variables file
 df <- fread(path_140m_vars, encoding = "UTF-8") %>%
@@ -47,13 +53,24 @@ df <- df %>% left_join(wmp_ents, "pd_id")
 # ----
 # Mentions
 
-# Combine mentions and appearances
-df$all_entities <- 
-  paste(df$detected_entities, df$aws_face, sep = ",") %>%
-  str_remove(",$") %>%
-  str_split(",") %>%
-  lapply(str_trim)
-df <- df %>% select(-c(detected_entities, aws_face))
+if(textonly == F){
+  # Combine mentions and appearances
+  df$all_entities <- 
+    paste(df$detected_entities, df$aws_face, sep = ",") %>%
+    str_remove(",$") %>%
+    str_split(",") %>%
+    lapply(str_trim)
+  df <- df %>% select(-c(detected_entities, aws_face))
+}
+if(textonly == T){
+  # Combine mentions and appearances
+  df$all_entities <- 
+    df$detected_entities %>%
+    str_remove(",$") %>%
+    str_split(",") %>%
+    lapply(str_trim)
+  df <- df %>% select(-c(detected_entities, aws_face))
+}
 
 # exclude scotus, former potus candidates, senators not up for reelection
 pol <- fread(path_cand_pol)
@@ -173,7 +190,15 @@ df$race_of_focus[df$sub_bucket == "3.3"] <- "No race of focus"
 df$race_of_focus_region_pct <- unlist(lapply(df$matched_mentions_region_pct, max)) # Ignore the warnings
 df$race_of_focus_region_pct[!df$sub_bucket %in% c("3.2.2.1", "3.2.2.2")] <- NA
 
-# Use bzip2 compression to sneak it under the 100Mb mark (otherwise its 105mb, this way it's 73mb)
-save(df, file = path_out_rdata, compress = "bzip2")
-df2 <- df %>% select(ad_id, sub_bucket, race_of_focus, race_of_focus_region_pct)
-fwrite(df2, path_out_csv)
+if(textonly == F){
+  # Use bzip2 compression to sneak it under the 100Mb mark (otherwise its 105mb, this way it's 73mb)
+  save(df, file = path_out_rdata, compress = "bzip2")
+  df2 <- df %>% select(ad_id, sub_bucket, race_of_focus, race_of_focus_region_pct)
+  fwrite(df2, path_out_csv)
+}
+if(textonly == T){
+  # Use bzip2 compression to sneak it under the 100Mb mark (otherwise its 105mb, this way it's 73mb)
+  save(df, file = path_out_rdata_textonly, compress = "bzip2")
+  df2 <- df %>% select(ad_id, sub_bucket, race_of_focus, race_of_focus_region_pct)
+  fwrite(df2, path_out_csv_textonly)
+}
