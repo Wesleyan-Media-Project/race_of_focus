@@ -14,7 +14,6 @@ textonly <- F
 # Input files
 path_140m_vars <- "../fb_2020/fb_2020_140m_adid_var1.csv.gz"
 path_el_results <- "../entity_linking/facebook/data/entity_linking_results_140m_notext_combined.csv.gz"
-path_aws <- "../datasets/aws_results/fb_2020_aws.csv"
 path_wmpent <- "../datasets/wmp_entity_files/Facebook/2020/wmp_fb_entities_v090622.csv"
 path_cand <- "../datasets/candidates/cand2020_05192022.csv"
 path_cand_pol <- "../datasets/candidates/face_url_politician.csv"
