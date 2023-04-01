@@ -28,6 +28,9 @@ df <- fread(path_140m_vars, encoding = "UTF-8") %>%
   select(ad_id, pd_id, region_distribution, aws_face)
 full_size <- nrow(df)
 
+# remove semicolons, delete this once Jielu fixes it
+df$aws_face <- str_replace_all(df$aws_face, ";", ",")
+
 # Add in entity linking results directly from the EL repo
 el <- fread(path_el_results)
 el <- el[match(df$ad_id, el$ad_id),]
