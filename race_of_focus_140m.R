@@ -125,7 +125,7 @@ df$region_distribution <-
   str_split(",") %>%
   lapply(function(x){state.abb[match(x, state.name)]}) %>%
   lapply(unique)
-
+df$region_distribution <- lapply(df$region_distribution, function(x){x[is.na(x) == F]})
 
 # States of mentioned entities (without presidential candidates)
 df$entities_states <- 
@@ -203,3 +203,7 @@ if(textonly == T){
   df2 <- df %>% select(ad_id, sub_bucket, race_of_focus, race_of_focus_region_pct)
   fwrite(df2, path_out_csv_textonly)
 }
+
+# pdids for which race of focus is NA
+missing_rof <- unique(df$pd_id[is.na(df$race_of_focus)])
+writeLines(missing_rof, "data/pdids_for_which_race_of_focus_is_NA_2020.txt")
