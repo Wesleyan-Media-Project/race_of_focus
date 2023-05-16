@@ -60,7 +60,7 @@ wmp_ents_all$office <- paste0(wmp_ents_all$hse_state, str_pad(wmp_ents_all$hse_d
 wmp_ents_all$office[(is.na(wmp_ents_all$sen_state) == F) & wmp_ents_all$sen_state != ""] <- paste0(wmp_ents_all$sen_state, "S0")[(is.na(wmp_ents_all$sen_state) == F) & wmp_ents_all$sen_state != ""]
 wmp_ents_all$office[wmp_ents_all$office == "NA"] <- NA
 for(i in 1:nrow(wmp_ents)){
-  if((wmp_ents$wmp_spontype[i] == "campaign") & (wmp_ents$wmp_office[i] %in% c("us house", "us senate"))){
+  if((wmp_ents$wmp_spontype[i] == "campaign") & (wmp_ents$wmp_office[i] %in% c("us house", "us senate")) & is.na(wmp_ents$office[i])){
     wmp_ents$office[i] <- wmp_ents_all$office[match(wmp_ents$pd_id[i], wmp_ents_all$pd_id)]
   }
 }
