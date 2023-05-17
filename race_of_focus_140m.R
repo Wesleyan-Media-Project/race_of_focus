@@ -39,6 +39,7 @@ df$detected_entities <- el$detected_entities
 # WMP entities file
 wmp_ents <- fread(path_wmpent)
 # Keep only relevant columns
+wmp_ents_all <- wmp_ents
 wmp_ents <- wmp_ents %>% 
   select(pd_id, wmp_spontype, wmp_office_post090120, fecid_formerge)
 # Merge with candidates file for district
@@ -47,6 +48,18 @@ cands <- fread(path_cand) %>%
   # Remove duplicate row (Jake Laturner)
   filter(!duplicated(.))
 wmp_ents <- wmp_ents %>% left_join(cands, c("fecid_formerge" = "fec_id"))
+
+# Add office for candidates who aren't in the candidate file, but have an office in the WMP entity file
+wmp_ents_all$office <- paste0(wmp_ents_all$hse_state, str_pad(wmp_ents_all$hse_district, 2, "left", "0"))
+wmp_ents_all$office[(is.na(wmp_ents_all$sen_state) == F) & wmp_ents_all$sen_state != ""] <- paste0(wmp_ents_all$sen_state, "S0")[(is.na(wmp_ents_all$sen_state) == F) & wmp_ents_all$sen_state != ""]
+wmp_ents_all$office[wmp_ents_all$wmp_pres == 1] <- "PRES"
+wmp_ents_all$office[wmp_ents_all$office == "NA"] <- NA
+for(i in 1:nrow(wmp_ents)){
+  if((wmp_ents$wmp_spontype[i] == "campaign") & (wmp_ents$wmp_office[i] %in% c("us house", "us senate", "president")) & is.na(wmp_ents$office[i])){
+    wmp_ents$office[i] <- wmp_ents_all$office[match(wmp_ents$pd_id[i], wmp_ents_all$pd_id)]
+  }
+}
+
 # Then merge into 1.40m
 df <- df %>% left_join(wmp_ents, "pd_id")
 
@@ -116,16 +129,32 @@ df$region_distribution <-
   str_remove_all('percentage:') %>% 
   str_remove_all(',region') %>% 
   str_remove_all('\\[|\\]|\\{|\\}')
-# Extract the percentage
-df$region_pct <- str_extract_all(df$region_distribution, "[0-9|\\.]+")
-# Finish extracting the state
-df$region_distribution <- 
-  df$region_distribution %>%
-  str_remove_all("[0-9|\\:|\\.]") %>%
-  str_split(",") %>%
-  lapply(function(x){state.abb[match(x, state.name)]}) %>%
-  lapply(unique)
-df$region_distribution <- lapply(df$region_distribution, function(x){x[is.na(x) == F]})
+
+# Split regions
+tmp <- str_split(df$region_distribution, ",")
+# For each region, split the percentage and the region name
+tmp <- lapply(tmp, str_split_fixed, ":", n = 2)
+# Only keep regions that are states
+# the ,,drop = F avoids converting one-row matrices into vectors
+# the first comma is for the subsetting, the second to specify arguments
+tmp <- lapply(tmp, function(x){x[x[,2] %in% state.name,,drop = F]})
+# Put each column of the resulting into the respective column in the dataframe
+df$region_pct <- lapply(tmp, function(x){x[,1]})
+df$region_distribution <- lapply(tmp, function(x){x[,2]})
+# Convert state names to state abbreviations
+df$region_distribution <- lapply(df$region_distribution, function(x){state.abb[match(x, state.name)]})
+
+
+# # Extract the percentage
+# df$region_pct <- str_extract_all(df$region_distribution, "[0-9|\\.]+")
+# # Finish extracting the state
+# df$region_distribution <- 
+#   df$region_distribution %>%
+#   str_remove_all("[0-9|\\:|\\.]") %>%
+#   str_split(",") %>%
+#   lapply(function(x){state.abb[match(x, state.name)]}) %>%
+#   lapply(unique)
+# df$region_distribution <- lapply(df$region_distribution, function(x){x[is.na(x) == F]})
 
 # States of mentioned entities (without presidential candidates)
 df$entities_states <- 
@@ -204,6 +233,9 @@ if(textonly == T){
   fwrite(df2, path_out_csv_textonly)
 }
 
-# pdids for which race of focus is NA
-missing_rof <- unique(df$pd_id[is.na(df$race_of_focus)])
-writeLines(missing_rof, "data/pdids_for_which_race_of_focus_is_NA_2020.txt")
+# pdids for which race of focus is NA -- this won't work any more
+#missing_rof <- unique(df$pd_id[is.na(df$race_of_focus)])
+#writeLines(missing_rof, "data/pdids_for_which_race_of_focus_is_NA_2020.txt")
+
+# This should ideally be empty
+table(df$sub_bucket[is.na(df$race_of_focus)])
