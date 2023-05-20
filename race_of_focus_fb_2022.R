@@ -30,9 +30,6 @@ full_size <- nrow(df)
 
 # Add in entity linking results directly from the EL repo
 el <- fread(path_el_results)
-# Fix Trump/Biden
-el$detected_entities <- str_replace_all(el$detected_entities, 'P80001571', 'WMPID1290')
-el$detected_entities <- str_replace_all(el$detected_entities, 'P80000722', 'WMPID1289')
 # Merge in EL results
 df <- left_join(df, el, by = "ad_id")
 df$detected_entities[is.na(df$detected_entities)] <- ""
@@ -98,6 +95,9 @@ pol <- fread(path_cand_pol)
 
 not_relevant_person <- pol[,which(names(pol) == "supcourt_2022"):which(names(pol) == "gov2022_noelect")]
 not_relevant_person[is.na(not_relevant_person) == T] <- 0
+# also include cabinet members etc. who don't have their own variable
+not_relevant_person$other <- as.numeric(pol$face_category != "")
+# anyone who has at least one 1 is not relevant
 not_relevant_person <- apply(not_relevant_person, 1, function(x){any(x == 1)})
 not_relevant_person <- pol$wmpid[not_relevant_person]
 
@@ -111,8 +111,6 @@ df$all_entities[unlist(lapply(df$all_entities, length)) == 0] <- ""
 
 # Only unique entities within an ad
 df$all_unique_entities <- lapply(df$all_entities, unique)
-# Only unique entities that are actually candidates
-df$all_unique_entities <- lapply(df$all_unique_entities, function(x){x[x %in% cands$wmpid]})
 # Get the races of the ad's unique entities
 df$all_unique_entities_races <- lapply(df$all_unique_entities, function(x){cands$office[match(x, cands$wmpid)]})
 # Get the unique races
