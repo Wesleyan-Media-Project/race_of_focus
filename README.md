@@ -42,9 +42,6 @@ This repo is part of the Preliminary Data Classification section.
 
 The data created by the scripts in this repo is in fdata and csv format. Each R-file outputs 2 fdata scripts and 2 csv format ones. 
 
-An individual record contains the following fields:
-give descriptions/variable names once issue with fb_2020_140m_adid_var1.csv.gz is done 
-
 
 ## Setup
 It is important that you know that there is no order that these scripts should be ran in. Each R file in the repo
@@ -52,11 +49,13 @@ acts on its own, without calling the other R files.
 
 In order to use this directory, you must
 ### 1. Install R and Packages
-First, make sure you have R installed. In addition, while R can be ran from the terminal, many people find it much easier to use r-studio along with R  <br>
-https://rstudio-education.github.io/hopr/starting.html here is a link that walks you through downloading and using both programs. <br>
+First, make sure you have R installed. In addition, while R can be ran from the terminal, many people find it much easier to use r-studio along with R.  <br>
+https://rstudio-education.github.io/hopr/starting.html
+<br>
+Here is a link that walks you through downloading and using both programs. <br>
 The script uses R (4.2.2).
 <br>
-Next, make sure you have the following packages installed in R (exact version we used are listed [in the requirements_r.txt file](https://github.com/Wesleyan-Media-Project/race_of_focus/blob/main/requirements_r.txt) : <br>
+Next, make sure you have the following packages installed in R (the exact version we used of each package is listed [in the requirements_r.txt file)](https://github.com/Wesleyan-Media-Project/race_of_focus/blob/main/requirements_r.txt) : <br>
 purrr <br>
 stringr <br>
 dplyr <br>
@@ -76,21 +75,22 @@ If you are using data from existing ads we collected and processed, then you can
 You can find the exact files needed for each script by looking at the code in the R-file that you are running and specifically at what is under #Input files. For example, path_140m_vars <- "../fb_2020/fb_2020_140m_adid_var1.csv.gz"
 means that you neeed the file fb_2020_140m_adid_var1.csv.gz that is found in the fb_2020 repo.
 
-Here are the repos you will need to download for each R script. 
-
 Some of the files needed are not actually in the github directories they are listed as being under due to being too large.
 
-Instead, these are currently on the Delta Lab Google Drive. This Google Drive will not be shared with the general public, but the data it utilizes will be shared in another manner (possibly through Figma links?). (ONCE THIS HAPPENS THIS WILL BE CHANGED)
+Instead, these are currently on the Delta Lab Google Drive. This Google Drive will not be shared with the general public, but the data it utilizes will be shared in another manner (possibly through Figma links).
+
+Here are the repos you will need to download for each R script. 
 
 Currently, 
-running race_of_focus_140m.R requres: <br>
-fb_2020 (fb_2020_140m_adid_var1.csv.gz, which is needed for this repo, is hosted on the google drive), entity_linking, datasets
+running race_of_focus_140m.R requres datasets from the repos: <br>
+[fb_2020](https://github.com/Wesleyan-Media-Project/fb_2020)
+(it's relevant to mention that fb_2020_140m_adid_var1.csv.gz, which is needed for this repo, is currently hosted on the google drive), [entity_linking](https://github.com/Wesleyan-Media-Project/entity_linking) and [datasets](https://github.com/Wesleyan-Media-Project/datasets)
 
 running race_of_focus_google_2020.R requires: <br>
-google_2020, entity_linking, datasets 
+[google_2020](https://github.com/Wesleyan-Media-Project/google_2020) (it's relevant to mention that google_2020_adid_var1.csv.gz, which is needed for this repo, is currently hosted on the google drive), [entity_linking](https://github.com/Wesleyan-Media-Project/entity_linking), and [datasets](https://github.com/Wesleyan-Media-Project/datasets) 
 
 running race_of_focus_fb_2022.R requires: <br>
-fb_2022, entity_linking_2022, datasets 
+[fb_2022](https://github.com/Wesleyan-Media-Project/fb_2022), [entity_linking_2022](https://github.com/Wesleyan-Media-Project/entity_linking_2022), and [datasets](https://github.com/Wesleyan-Media-Project/datasets) 
 
 
 ### 3. Run R file 
