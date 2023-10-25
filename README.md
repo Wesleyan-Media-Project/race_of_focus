@@ -4,8 +4,7 @@ Welcome! This repo is part of the Cross-platform Election Advertising Transparen
 
 This repo is part of the Preliminary Data Classification section.
 
-[A picture of the repo pipeline with this repo highlighted] https://mediaproject.wesleyan.edu/wp-content/uploads/2023/08/wmp_pipeline_051123_v2_circle.png OR
-https://camo.githubusercontent.com/f7339b7a62588f2b2931a9e7de16801f2686a1d8a69d979a3a440131abc82322/68747470733a2f2f6d6564696170726f6a6563742e7765736c6579616e2e6564752f77702d636f6e74656e742f75706c6f6164732f323032332f30362f776d705f706970656c696e655f3131313732325f746162732e706e67 
+[A picture of the repo pipeline with this repo highlighted]
 
 
 ## Table of Contents
