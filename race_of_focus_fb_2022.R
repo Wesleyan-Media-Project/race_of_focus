@@ -15,7 +15,7 @@ textonly <- F
 path_fb2022_vars <- "../fb_2022/fb_2022_adid_var1.csv.gz"
 path_el_results <- "../entity_linking_2022/facebook/data/detected_entities_fb22.csv.gz"
 path_wmpent <- "../datasets/wmp_entity_files/Facebook/2022/wmp_fb_2022_entities_v120122.csv"
-path_cand <- "../datasets/candidates/wmpcand_041723_wmpid.csv"
+path_cand <- "../datasets/candidates/wmpcand_120223_wmpid.csv"
 path_cand_pol <- "../datasets/people/person_2022.csv"
 # Output files
 path_out_rdata <- "data/race_of_focus_fb2022.rdata"
