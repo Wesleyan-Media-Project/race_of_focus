@@ -20,14 +20,14 @@ path_g2022_vars <- "../google_2022/google2022_adidlevel.csv"
 g2022 <- fread(path_g2022_vars, encoding = "UTF-8")
 
 #entity linking files
-path_el_results <- "../entity_linking_2022-main/entity_linking/google/data/entity_linking_results_google_2022_notext_combined_20231028.csv.gz"
+path_el_results <- "../entity_linking_2022/google/data/entity_linking_results_google_2022_notext_combined_20231028.csv.gz"
 entity <- fread(path_el_results, encoding = "UTF-8")
 
 path_wmpent <- "../datasets/wmp_entity_files/Google/wmp_google_2022_entities_v112822.csv"
 wmpent <- fread(path_wmpent, encoding = "UTF-8")
 
 #candidate files
-path_cand <- "../datasets/candidates/wmpcand_041723_wmpid.csv"
+path_cand <- "../datasets/candidates/wmpcand_120223_wmpid.csv"
 cand2022 <- fread(path_cand, encoding = "UTF-8")
 
 #faces
