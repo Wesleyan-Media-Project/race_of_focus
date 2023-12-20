@@ -21,7 +21,7 @@ This repo is part of the Preliminary Data Classification section.
 This repository contains code that identifies the race an ad focuses on based on which candidates are mentioned within it.
 
 This repo contains three R scripts, and each script is based on different datasets. 
-race_of_focus_140m.R uses data from Facebook from 2020, race_of_focus_fb_2022.R uses data from Facebook from 2022 and race_of_focus_google_2020.R uses data from Google from 2020.
+`race_of_focus_140m.R` uses data from Facebook from 2020, `race_of_focus_fb_2022.R` uses data from Facebook from 2022 and `race_of_focus_google_2020.R` uses data from Google from 2020.
 
 In addition, it should be possible to use this repo to process ad data besides that of ads we collected. 
 More details on this are given in the Setup Section. 
@@ -71,7 +71,7 @@ However, if you wish to process your own ad data, this is also possible. To do s
 
 If you are using data from existing ads we collected and processed, then you can use the R-files from this repo directly. In this case, keep in mind that there is no correct order for the R-files in this repo to be ran. Each R-file is ran independently and is based on different data. Depending one which R-file you are running, you will need to download various additional repos into the same top-level folder as the race_of_focus repo. 
 
-You can find the exact files needed for each script by looking at the code in the R-file that you are running and specifically at what is under #Input files. For example, path_140m_vars <- "../fb_2020/fb_2020_140m_adid_var1.csv.gz"
+You can find the exact files needed for each script by looking at the code in the R-file that you are running and specifically at what is under #Input files. For example, `path_140m_vars <- "../fb_2020/fb_2020_140m_adid_var1.csv.gz"`
 means that you neeed the file fb_2020_140m_adid_var1.csv.gz that is found in the fb_2020 repo.
 
 Some of the files needed are not actually in the github directories they are listed as being under due to being too large.
@@ -83,14 +83,14 @@ Here are the repos you will need to download for each R script.
 Currently, 
 running race_of_focus_140m.R requres datasets from the repos: <br>
 [fb_2020](https://github.com/Wesleyan-Media-Project/fb_2020)
-(it's relevant to mention that fb_2020_140m_adid_var1.csv.gz, which is needed for this repo, is currently hosted on the google drive), [entity_linking](https://github.com/Wesleyan-Media-Project/entity_linking) and [datasets](https://github.com/Wesleyan-Media-Project/datasets)
+(it's relevant to mention that `fb_2020_140m_adid_var1.csv.gz`, which is needed for this repo, is currently hosted on the google drive), [entity_linking](https://github.com/Wesleyan-Media-Project/entity_linking) and [datasets](https://github.com/Wesleyan-Media-Project/datasets)
 
-running race_of_focus_google_2020.R requires: <br>
-[google_2020](https://github.com/Wesleyan-Media-Project/google_2020) (it's relevant to mention that google_2020_adid_var1.csv.gz, which is needed for this repo, is currently hosted on the google drive), [entity_linking](https://github.com/Wesleyan-Media-Project/entity_linking), and [datasets](https://github.com/Wesleyan-Media-Project/datasets) 
+running `race_of_focus_google_2020.R` requires: <br>
+[`google_2020`](https://github.com/Wesleyan-Media-Project/google_2020) (it's relevant to mention that `google_2020_adid_var1.csv.gz`, which is needed for this repo, is currently hosted on the google drive), [`entity_linking`](https://github.com/Wesleyan-Media-Project/entity_linking), and [`datasets`](https://github.com/Wesleyan-Media-Project/datasets) 
 
-running race_of_focus_fb_2022.R requires: <br>
-[fb_2022](https://github.com/Wesleyan-Media-Project/fb_2022), [entity_linking_2022](https://github.com/Wesleyan-Media-Project/entity_linking_2022), and [datasets](https://github.com/Wesleyan-Media-Project/datasets) 
+running `race_of_focus_fb_2022.R` requires: <br>
+[`fb_2022`](https://github.com/Wesleyan-Media-Project/fb_2022), [`entity_linking_2022`](https://github.com/Wesleyan-Media-Project/entity_linking_2022), and [`datasets`](https://github.com/Wesleyan-Media-Project/datasets) 
 
 
 ### 3. Run R file 
-You should now be able to run the script. By default, the script uses both candidate mentions and appearances. For mentions only, change line 12 from textonly <- F to textonly <- T (line 13 in race_of_focus_google_2020.R).
+You should now be able to run the script. By default, the script uses both candidate mentions and appearances. For mentions only, change line 12 from `textonly <- F` to `textonly <- T` (line 13 in `race_of_focus_google_2020.R`).
