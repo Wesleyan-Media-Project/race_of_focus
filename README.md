@@ -72,7 +72,7 @@ However, if you wish to process your own ad data, this is also possible. To do s
 If you are using data from existing ads we collected and processed, then you can use the R-files from this repo directly. In this case, keep in mind that there is no correct order for the R-files in this repo to be ran. Each R-file is ran independently and is based on different data. Depending one which R-file you are running, you will need to download various additional repos into the same top-level folder as the race_of_focus repo. 
 
 You can find the exact files needed for each script by looking at the code in the R-file that you are running and specifically at what is under #Input files. For example, `path_140m_vars <- "../fb_2020/fb_2020_140m_adid_var1.csv.gz"`
-means that you neeed the file fb_2020_140m_adid_var1.csv.gz that is found in the fb_2020 repo.
+means that you neeed the file `fb_2020_140m_adid_var1.csv.gz` that is found in the fb_2020 repo.
 
 Some of the files needed are not actually in the github directories they are listed as being under due to being too large.
 
