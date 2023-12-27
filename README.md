@@ -86,7 +86,7 @@ running race_of_focus_140m.R requres datasets from the repos: <br>
 (it's relevant to mention that `fb_2020_140m_adid_var1.csv.gz`, which is needed for this repo, is currently hosted on the google drive), [entity_linking](https://github.com/Wesleyan-Media-Project/entity_linking) and [datasets](https://github.com/Wesleyan-Media-Project/datasets)
 
 running `race_of_focus_google_2020.R` requires: <br>
-[`google_2020`](https://github.com/Wesleyan-Media-Project/google_2020) (it's relevant to mention that `google_2020_adid_var1.csv.gz`, which is needed for this repo, is currently hosted on the google drive), [`entity_linking`](https://github.com/Wesleyan-Media-Project/entity_linking), and [`datasets`](https://github.com/Wesleyan-Media-Project/datasets) 
+[`google_2020`](https://github.com/Wesleyan-Media-Project/google_2020), [`entity_linking`](https://github.com/Wesleyan-Media-Project/entity_linking), and [`datasets`](https://github.com/Wesleyan-Media-Project/datasets) 
 
 running `race_of_focus_fb_2022.R` requires: <br>
 [`fb_2022`](https://github.com/Wesleyan-Media-Project/fb_2022), [`entity_linking_2022`](https://github.com/Wesleyan-Media-Project/entity_linking_2022), and [`datasets`](https://github.com/Wesleyan-Media-Project/datasets) 
