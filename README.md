@@ -81,9 +81,9 @@ Instead, these are currently on the Delta Lab Google Drive. This Google Drive wi
 Here are the repos you will need to download for each R script. 
 
 Currently, 
-running race_of_focus_140m.R requres datasets from the repos: <br>
-[fb_2020](https://github.com/Wesleyan-Media-Project/fb_2020)
-(it's relevant to mention that `fb_2020_140m_adid_var1.csv.gz`, which is needed for this repo, is currently hosted on the google drive), [entity_linking](https://github.com/Wesleyan-Media-Project/entity_linking) and [datasets](https://github.com/Wesleyan-Media-Project/datasets)
+running `race_of_focus_140m.R` requres datasets from the repos: <br>
+[`fb_2020`](https://github.com/Wesleyan-Media-Project/fb_2020)
+(it's relevant to mention that `fb_2020_140m_adid_var1.csv.gz`, which is needed for this repo, is currently hosted on the google drive), [`entity_linking`](https://github.com/Wesleyan-Media-Project/entity_linking) and [`datasets`](https://github.com/Wesleyan-Media-Project/datasets)
 
 running `race_of_focus_google_2020.R` requires: <br>
 [`google_2020`](https://github.com/Wesleyan-Media-Project/google_2020), [`entity_linking`](https://github.com/Wesleyan-Media-Project/entity_linking), and [`datasets`](https://github.com/Wesleyan-Media-Project/datasets) 
