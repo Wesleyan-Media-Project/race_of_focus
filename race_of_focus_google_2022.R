@@ -15,8 +15,13 @@ library(tidyverse)
 textonly <- T
 
 ####Input Files####
-#goggle files
-path_g2022_vars <- "../google_2022/google2022_adidlevel_merged.csv"
+#google files
+
+# This is the merged "g2022_adid_01062021_11082022_text.csv" and 
+# "g2022_adid_01062021_11082022_var1.csv" from 
+# data-post-production/01-merge-results/01_merge_preprocessed_results
+path_g2022_vars <- "google2022_adidlevel_merged.csv"
+
 g2022 <- fread(path_g2022_vars, encoding = "UTF-8")
 
 #entity linking files
