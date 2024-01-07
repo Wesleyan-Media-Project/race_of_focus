@@ -75,7 +75,7 @@ Given that you are using data from existing ads we collected and processed, keep
 
 You can find the exact files needed for each script by looking at the code in the R-file that you are running and specifically at what is under #Input files. For example, `path_140m_vars <- "../fb_2020/fb_2020_140m_adid_var1.csv.gz"` means that you neeed the file `fb_2020_140m_adid_var1.csv.gz`. 
 
-Some of the files needed are not actually in the github directories they are listed as being under due to being too large. Instead, these are available on Figma. These include the files that are used in the first line of code after #Input Files.
+Some of the files needed are not actually in the github directories they are listed as being under due to being too large. Instead, these are available on Figshare. These include the files that are used in the first line of code after #Input Files.
 
 Here are the repos you will need to download for each R script. 
 
