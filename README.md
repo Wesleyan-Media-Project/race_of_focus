@@ -4,7 +4,7 @@ Welcome! This repo is a part of the Cross-platform Election Advertising Transpar
 
 This repo is part of the Data Classification section.
 
-![A picture of the repo pipeline with this repo highlighted](Creative_Pipeline.png)
+![A picture of the repo pipeline with this repo highlighted](CREATIVE_step3_032524.png)
 
 
 ## Table of Contents
