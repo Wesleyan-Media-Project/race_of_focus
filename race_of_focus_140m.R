@@ -1,18 +1,18 @@
-# Implements race_of_focus, as detailed here:
-# https://docs.google.com/presentation/d/11E9kX1oVYfMooTdD1GAJfwJtdPIQpYB3lJ7i5e83ZEw/edit#slide=id.g12d57307ead_0_0
-
 library(data.table)
 library(tidyr)
 library(dplyr)
 library(stringr)
 library(purrr)
 
-# Option to use only the text-based fields to decide race of focus
-# Set to False by default
-textonly <- F
+# Option to use only the text-based fields or only the image-based fields to decide race of focus
+# can be 'text', 'image', and 'text_image' (default)
+medium <- "image"
 
 # Input files
+
+# Output from fb_2020 repo
 path_140m_vars <- "../fb_2020/fb_2020_140m_adid_var1.csv.gz"
+
 path_el_results <- "../entity_linking/facebook/data/entity_linking_results_140m_notext_combined.csv.gz"
 path_wmpent <- "../datasets/wmp_entity_files/Facebook/2020/wmp_fb_entities_v090622.csv"
 path_cand <- "../datasets/candidates/cand2020_05192022.csv"
@@ -20,8 +20,10 @@ path_cand_pol <- "../datasets/candidates/face_url_politician.csv"
 # Output files
 path_out_rdata <- "data/race_of_focus_140m.rdata"
 path_out_rdata_textonly <- "data/race_of_focus_140m_textonly.rdata"
+path_out_rdata_imageonly <- "data/race_of_focus_140m_imageonly.rdata"
 path_out_csv <- "data/race_of_focus_140m.csv"
 path_out_csv_textonly <- "data/race_of_focus_140m_textonly.csv"
+path_out_csv_imageonly <- "data/race_of_focus_140m_imageonly.csv"
 
 # Read 1.40m variables file
 df <- fread(path_140m_vars, encoding = "UTF-8") %>%
@@ -67,7 +69,7 @@ df <- df %>% left_join(wmp_ents, "pd_id")
 # ----
 # Mentions
 
-if(textonly == F){
+if(medium == "text_image"){
   # Combine mentions and appearances
   df$all_entities <- 
     paste(df$detected_entities, df$aws_face, sep = ",") %>%
@@ -76,10 +78,19 @@ if(textonly == F){
     lapply(str_trim)
   df <- df %>% select(-c(detected_entities, aws_face))
 }
-if(textonly == T){
+if(medium == "text"){
   # Combine mentions and appearances
   df$all_entities <- 
     df$detected_entities %>%
+    str_remove(",$") %>%
+    str_split(",") %>%
+    lapply(str_trim)
+  df <- df %>% select(-c(detected_entities, aws_face))
+}
+if(medium == "image"){
+  # Combine mentions and appearances
+  df$all_entities <- 
+    df$aws_face %>%
     str_remove(",$") %>%
     str_split(",") %>%
     lapply(str_trim)
@@ -220,17 +231,23 @@ df$race_of_focus[df$sub_bucket == "3.3"] <- "No race of focus"
 df$race_of_focus_region_pct <- unlist(lapply(df$matched_mentions_region_pct, max)) # Ignore the warnings
 df$race_of_focus_region_pct[!df$sub_bucket %in% c("3.2.2.1", "3.2.2.2")] <- NA
 
-if(textonly == F){
+if(medium == "text_image"){
   # Use bzip2 compression to sneak it under the 100Mb mark (otherwise its 105mb, this way it's 73mb)
   save(df, file = path_out_rdata, compress = "bzip2")
   df2 <- df %>% select(ad_id, sub_bucket, race_of_focus, race_of_focus_region_pct)
   fwrite(df2, path_out_csv)
 }
-if(textonly == T){
+if(medium == "text"){
   # Use bzip2 compression to sneak it under the 100Mb mark (otherwise its 105mb, this way it's 73mb)
   save(df, file = path_out_rdata_textonly, compress = "bzip2")
   df2 <- df %>% select(ad_id, sub_bucket, race_of_focus, race_of_focus_region_pct)
   fwrite(df2, path_out_csv_textonly)
+}
+if(medium == "image"){
+  # Use bzip2 compression to sneak it under the 100Mb mark (otherwise its 105mb, this way it's 73mb)
+  save(df, file = path_out_rdata_imageonly, compress = "bzip2")
+  df2 <- df %>% select(ad_id, sub_bucket, race_of_focus, race_of_focus_region_pct)
+  fwrite(df2, path_out_csv_imageonly)
 }
 
 # pdids for which race of focus is NA -- this won't work any more
