@@ -1,10 +1,10 @@
 # Wesleyan Media Project - Race of Focus 
 
-Welcome! This repo is part of the Cross-platform Election Advertising Transparency initiatIVE (CREATIVE) project. CREATIVE is a joint infrastructure project of WMP and privacy-tech-lab at Wesleyan University. CREATIVE provides cross-platform integration and standardization of political ads collected from Google and Facebook.
+Welcome! This repo is a part of the Cross-platform Election Advertising Transparency initiative ([CREATIVE](https://www.creativewmp.com/)) project. CREATIVE is a joint infrastructure project of WMP and privacy-tech-lab at Wesleyan University. CREATIVE provides cross-platform integration and standardization of political ads collected from Google and Facebook. 
 
-This repo is part of the Preliminary Data Classification section.
+This repo is part of the Data Classification section.
 
-[A picture of the repo pipeline with this repo highlighted]
+![A picture of the repo pipeline with this repo highlighted](CREATIVE_step3_032524.png)
 
 
 ## Table of Contents
@@ -29,12 +29,13 @@ More details on this are given in the Setup Section.
 ## Objective
 
 Each of our repos belongs to one or more of the the following categories:
-- Data Collection
-- Data Storage & Processing
-- Preliminary Data Classification
-- Final Data Classification
 
-This repo is part of the Preliminary Data Classification section.
+- Data Collection
+- Data Processing
+- Data Classification
+- Compiled Final Data 
+
+This repo is part of the Data Classification section.
 
 
 ## Data
@@ -48,8 +49,7 @@ acts on its own, without calling the other R files.
 
 In order to use this directory, you must
 ### 1. Install R and Packages
-First, make sure you have R installed. In addition, while R can be ran from the terminal, many people find it much easier to use r-studio along with R.  <br>
-https://rstudio-education.github.io/hopr/starting.html
+First, make sure you have R installed. In addition, while R can be ran from the terminal, many people find it much easier to use R-Studio along with R. A link to this program can be found [here](https://rstudio-education.github.io/hopr/starting.html) <br>
 <br>
 Here is a link that walks you through downloading and using both programs. <br>
 The script uses R (4.2.2).
