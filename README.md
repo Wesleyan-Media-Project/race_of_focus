@@ -4,7 +4,6 @@ Welcome! This repo identifies which race an ad focuses on as based on which cand
 
 This repo is part of the Cross-platform Election Advertising Transparency Initiative (CREATIVE). CREATIVE is a jointly founded infrastructure project by Wesleyan Media Project [(WMP)](https://mediaproject.wesleyan.edu) and [Privacy Tech Lab](https://privacytechlab.org) at Wesleyan University in Connecticut. This program is funded by a National Science Foundation [grant](https://www.nsf.gov/awardsearch/showAward?AWD_ID=2235006) to support making WMP’s work and data accessible to anyone. CREATIVE aims to provide cross-platform integration and standardization of digital advertising data related to federal elections by scraping or gaining access to digital ads themselves. (For more information on the CREATIVE project, click [here](https://www.creativewmp.com/)).
 This repo is part of the Data Classification section.
-This repo is part of the Data Classification section.
 
 ![A picture of the repo pipeline with this repo highlighted](CREATIVE_step3_032524.png)
 
@@ -59,7 +58,7 @@ In order to use this directory, you must
 ### 1. Install R and Packages
 First, make sure you have R installed. In addition, while R can be ran from the terminal, many people find it much easier to use R-Studio along with R. A link to this program can be found [here](https://rstudio-education.github.io/hopr/starting.html) <br>
 <br>
-Here is a link that walks you through downloading and using both programs. <br>
+Here is a [link](https://education.rstudio.com/learn/beginner/) that walks you through downloading and using both programs. <br>
 The script uses R (4.2.2).
 <br>
 Next, make sure you have the following packages installed in R (the exact version we used of each package is listed [in the requirements_r.txt file)](https://github.com/Wesleyan-Media-Project/race_of_focus/blob/main/requirements_r.txt) : <br>
