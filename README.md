@@ -47,6 +47,9 @@ This repo is part of the Data Classification section.
 
 The data created by the scripts in this repo is in fdata and csv format. Each R-file outputs 2 fdata scripts and 2 csv format ones. 
 
+In order to see the way in which the race is determined as based on who the ad sponsor is, consult this diagram. 
+
+![Diagram showing the process by which the race of focus is deduced](race_of_focus_chart.png)
 
 ## Setup
 It is important that you know that there is no order that these scripts should be ran in. Each R file in the repo
