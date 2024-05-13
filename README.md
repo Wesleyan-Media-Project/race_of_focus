@@ -9,10 +9,10 @@ To analyze the different dimensions of political ad transparency we have develop
 
 
 ## Table of Contents
-[1. Introduction](#introduction)
-[2. Data](#data)
-[3. Setup](#setup)
-[4. Thank You!](#thank-you)
+[1. Introduction](#introduction)<br>
+[2. Data](#data)<br>
+[3. Setup](#setup)<br>
+[4. Thank You!](#thank-you)<br>
 
 
 ## 1. Introduction
