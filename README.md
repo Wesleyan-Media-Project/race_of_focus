@@ -3,25 +3,19 @@
 Welcome! This repo identifies which race an ad focuses on as based on which candidates are mentioned in it. 
 
 This repo is part of the Cross-platform Election Advertising Transparency Initiative (CREATIVE). CREATIVE is a jointly founded infrastructure project by Wesleyan Media Project [(WMP)](https://mediaproject.wesleyan.edu) and [Privacy Tech Lab](https://privacytechlab.org) at Wesleyan University in Connecticut. This program is funded by a National Science Foundation [grant](https://www.nsf.gov/awardsearch/showAward?AWD_ID=2235006) to support making WMP’s work and data accessible to anyone. CREATIVE aims to provide cross-platform integration and standardization of digital advertising data related to federal elections by scraping or gaining access to digital ads themselves. (For more information on the CREATIVE project, click [here](https://www.creativewmp.com/)).
-This repo is part of the Data Classification section.
 
+To analyze the different dimensions of political ad transparency we have developed an analysis pipeline. The scripts in this repo are part of the Data Classification Step in our pipeline. 
 ![A picture of the repo pipeline with this repo highlighted](CREATIVE_step3_032524.png)
 
 
 ## Table of Contents
-
-- [Introduction](#introduction)
-
-- [Objective](#objective)
-
-- [Data](#data)
-
-- [Setup](#setup)
-
-- [Thank You!](#thank-you)
+[1. Introduction](#introduction)
+[2. Data](#data)
+[3. Setup](#setup)
+[4. Thank You!](#thank-you)
 
 
-## Introduction
+## 1. Introduction
 This repository contains code that identifies the race an ad focuses on based on which candidates are mentioned within it.
 
 This repo contains three R scripts, and each script is based on different datasets. 
@@ -30,19 +24,7 @@ This repo contains three R scripts, and each script is based on different datase
 In addition, it should be possible to use this repo to process ad data besides that of ads we collected. 
 More details on this are given in the Setup Section. 
 
-## Objective
-
-Each of our repos belongs to one or more of the the following categories:
-
-- Data Collection
-- Data Processing
-- Data Classification
-- Compiled Final Data 
-
-This repo is part of the Data Classification section.
-
-
-## Data
+## 2. Data
 
 The data created by the scripts in this repo is in fdata and csv format. Each R-file outputs 2 fdata scripts and 2 csv format ones. 
 
@@ -50,7 +32,7 @@ In order to visualize how the race is determined as based on ad sponsor, consult
 
 ![Diagram showing the process by which the race of focus is deduced](race_of_focus_chart.png)
 
-## Setup
+## 3. Setup
 It is important that you know that there is no order that these scripts should be ran in. Each R file in the repo
 acts on its own, without calling the other R files. 
 
@@ -104,7 +86,7 @@ running `race_of_focus_google_2022.R` requires: <br>
 ### 3. Run R file 
 You should now be able to run the script. By default, the script uses both candidate mentions and appearances. For mentions only, change line 12 from `textonly <- F` to `textonly <- T` (line 13 in `race_of_focus_google_2020.R`).
 
-## Thank You
+## 4. Thank You
 
 <p align="center"><strong>We would like to thank our financial supporters!</strong></p><br>
 
