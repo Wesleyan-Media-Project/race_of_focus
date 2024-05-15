@@ -4,21 +4,14 @@ library(dplyr)
 library(stringr)
 library(purrr)
 library(haven)
-library(tidyverse)
 
 # Option to use only the text-based fields to decide race of focus
 # Set to False by default
-#textonly <- F
 textonly <- T
 
 ####Input Files####
-#google files
-
-# This is the merged "g2022_adid_01062021_11082022_text.csv" and 
-# "g2022_adid_01062021_11082022_var1.csv" from 
-# data-post-production/01-merge-results/01_merge_preprocessed_results
-path_g2022_vars <- "google2022_adidlevel_merged.csv"
-
+#goggle files
+path_g2022_vars <- "../data_post_production/g2022_adid_01062021_11082022_var1.csv.gz"
 g2022 <- fread(path_g2022_vars, encoding = "UTF-8")
 
 #entity linking files
@@ -133,6 +126,7 @@ g2022_3$all_entities <-
   # if one of those people is the only one mentioned, 
   # it will be set to character(0), changing this to ""
   lapply(function(x){x[x != ""]})
+
 rm(pol)
 g2022_3$all_entities[unlist(lapply(g2022_3$all_entities, length)) == 0] <- ""
 
