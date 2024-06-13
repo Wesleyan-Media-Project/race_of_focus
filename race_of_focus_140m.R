@@ -6,7 +6,7 @@ library(purrr)
 
 # Option to use only the text-based fields or only the image-based fields to decide race of focus
 # can be 'text', 'image', and 'text_image' (default)
-medium <- "image"
+medium <- "text_image"
 
 # Input files
 

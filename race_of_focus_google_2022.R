@@ -7,7 +7,7 @@ library(haven)
 
 # Option to use only the text-based fields to decide race of focus
 # Set to False by default
-textonly <- T
+textonly <- F
 
 ####Input Files####
 #goggle files
