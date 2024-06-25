@@ -30,7 +30,7 @@ You can use the scripts in this repo to analyze ad data beyond the data we alrea
 
 The data created by the scripts in this repo is in Rdata and csv format. Each R scripts outputs two Rdata files and two csv format files. We give two versions to allow users to choose between the types of data that more general (csv) or more efficient for R (Rdata).
 
-When determining which race an ad is focused on, we use different criteria based on the type of the sponsor of the ad (wmp_spontype). In general, we have three different groups of sponsors: federal candidate, down ballow candidate, and non-candidate group. For each type, we use a different decision-making for race of focus. For instance, for federal candidate and down ballot candidate ads, we simply take the office/race of the sponsor as race of focus. For non-candidate ads, we have a longer process which we visualize below. 
+When determining which race an ad is focused on, we use different criteria based on the type of the sponsor of the ad (wmp_spontype). In general, we have three different groups of sponsors: federal candidate, down ballot candidate, and non-candidate group. For each type, we use a different decision-making for race of focus. For instance, for federal candidate and down ballot candidate ads, we simply take the office/race of the sponsor as race of focus. For non-candidate ads, we have a longer process which we visualize below. 
 
 Once our race of focus classification is complete (output in the `race_of_focus` column), we then put these classification results into buckets and sub-buckets to help users categorize each ad into a group. This classification is represented as numbered indices (e.g. 1, 3.2.1) in the output column `sub_bucket`. 
 
