@@ -19,11 +19,9 @@ To analyze the different dimensions of political ad transparency we have develop
 
 This repo contains scripts for determining the electoral race an electoral ad is focused on based on which candidates are mentioned within it.
 
-Specifically, this repo contains four R scripts with each being based on different datasets:
+Specifically, this repo contains two R scripts for creating the 2022 datasets with each being based on different datasets:
 
-- `race_of_focus_140m.R` uses data from Facebook from 2020 (ADD FIGSHARE LINK FOR VAR1 FILE ONCE READY)
 - `race_of_focus_fb_2022.R` uses data from Facebook from 2022 (ADD FIGSHARE LINK FOR VAR1 FILE ONCE READY)
-- `race_of_focus_google_2020.R` uses data from Google from 2020 (ADD FIGSHARE LINK FOR VAR1 FILE ONCE READY)
 - `race_of_focus_google_2022.R` uses data from Google from 2022 (ADD FIGSHARE LINK FOR VAR1 FILE ONCE READY)
 
 You can use the scripts in this repo to analyze ad data beyond the data we already analyzed. Check the Setup section for detailed instructions how to do so.
