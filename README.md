@@ -84,7 +84,7 @@ Here are dependency repos or steps you will need to follow before running this r
 
 Running the two main scripts for 2022 datasets `race_of_focus_fb_2022.R` and `race_of_focus_google_2022.R` requires output or datasets from:
 
-- [`merge_preprocessed_results` step in `data-post-production`](https://github.com/Wesleyan-Media-Project/data-post-production/tree/main/01-merge-results/01_merge_preprocessed_results)
+- [`merge_preprocessed_results`](https://github.com/Wesleyan-Media-Project/data-post-production/tree/main/01-merge-results/01_merge_preprocessed_results) step in `data-post-production`
 - [`entity_linking_2022`](https://github.com/Wesleyan-Media-Project/entity_linking_2022)
 - [`datasets`](https://github.com/Wesleyan-Media-Project/datasets)
 
