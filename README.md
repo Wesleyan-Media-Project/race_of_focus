@@ -34,9 +34,9 @@ The data created by the scripts in this repo is in Rdata and csv format. Each R 
 
 When determining which race an ad is focused on, we use different criteria based on the type of the sponsor of the ad (wmp_spontype). In general, we have three different groups of sponsors: federal candidate, down ballow candidate, and non-candidate group. For each type, we use a different decision-making for race of focus. For instance, for federal candidate and down ballot candidate ads, we simply take the office/race of the sponsor as race of focus. For non-candidate ads, we have a longer process which we visualize below. 
 
-Once our race of focus classification is complete, we then put these classification results into buckets and sub-buckets to help users categorize each ad into a group.
+Once our race of focus classification is complete, we then put these classification results into buckets and sub-buckets to help users categorize each ad into a group. This classification is represented as numbered indices (e.g. 1, 3.2.1) in the output column `sub_bucket`. 
 
-To visualize our decision-making process, consult this diagram.
+The following diagram documents what each numbered sub-bucket represents and visualizes our decision-making process. For example, if an observation, i.e. an ad, is labeled sub-bucket 1 from our repo output, it represents an ad from a federal candidate race, and we make this decision because this ad was sponsored by a known federal candidate campaign. The variable `wmp_spontype` indicating whether an ad sponsor is a candidate campaign, national party, local party, or interest group can be found in one of our input files in the scripts. For an ad sponsored by a candidate's campaign, its race of focus is the candidate's race. For ads that were not sponsored by a candidate's campaign (e.g. by parties and outside groups instead), we determine the races of focus based on patterns of candidate mentions in the text fields and geolocations of targeted or exposed audiences. Using the `sub_bucket` indices, users can conveniently filter for ads relevant to the races of their interest for analysis. 
 
 ![Diagram showing the process by which the race of focus is deduced](race_of_focus_chart.png)
 
