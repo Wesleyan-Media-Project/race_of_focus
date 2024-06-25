@@ -78,31 +78,18 @@ You can find the exact files needed for each script by looking at the code in th
 
 Some of the files needed are not actually in the GitHub directories due to being too large. Instead, these are available on Figshare. These include the files that are used in the first line of code after #Input Files.
 
-Here are the repos you will need to download for each R script. The files from these repos are used as input files in race of focus scripts.
+Here are dependency repos or steps you will need to follow before running this repo. The outputs from these scripts are used as input files in race of focus scripts.
 
-Running `race_of_focus_140m.R` requires datasets from the repos:
+Running the two main scripts for 2022 datasets `race_of_focus_fb_2022.R` and `race_of_focus_google_2022.R` requires output or datasets from:
 
-- [`fb_2020`](https://github.com/Wesleyan-Media-Project/fb_2020)
-- [`entity_linking`](https://github.com/Wesleyan-Media-Project/entity_linking)
-- [`datasets`](https://github.com/Wesleyan-Media-Project/datasets)
-
-Running `race_of_focus_google_2020.R` requires:
-
-- [`google_2020`](https://github.com/Wesleyan-Media-Project/google_2020)
-- [`entity_linking`](https://github.com/Wesleyan-Media-Project/entity_linking)
-- [`datasets`](https://github.com/Wesleyan-Media-Project/datasets)
-
-Running `race_of_focus_fb_2022.R` requires:
-
-- [`data-post-production`](https://github.com/Wesleyan-Media-Project/data-post-production)
+- [`merge_preprocessed_results` step in `data-post-production`](https://github.com/Wesleyan-Media-Project/data-post-production/tree/main/01-merge-results/01_merge_preprocessed_results)
 - [`entity_linking_2022`](https://github.com/Wesleyan-Media-Project/entity_linking_2022)
 - [`datasets`](https://github.com/Wesleyan-Media-Project/datasets)
 
-Running `race_of_focus_google_2022.R` requires:
+Legacy scripts that were not used for creating 2022 datasets (scripts for creating 2020 datasets): 
+- `race_of_focus_140m.R`
+- `race_of_focus_google_2020.R`
 
-- [`data-post-production`](https://github.com/Wesleyan-Media-Project/data-post-production)
-- [`entity_linking_2022`](https://github.com/Wesleyan-Media-Project/entity_linking_2022)
-- [`datasets`](https://github.com/Wesleyan-Media-Project/datasets)
 
 ### 3.3 Run R Scripts
 
