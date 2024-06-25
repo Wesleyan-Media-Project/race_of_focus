@@ -61,12 +61,14 @@ Next, make sure you have the following packages installed in R. You can simply i
 
 ### 3.2 Download Dataset Files
 
-The R scripts that are in the repo reference data from existing ads we collected and processed. Depending on which platform (Google or Facebook) and which year (2020 or 2022) you are interested in, you may find the data we already collected to be sufficient. The links to download these files are provided here:
+The R scripts that are in the repo reference data from existing ads we collected and processed. Depending on which platform (Google or Facebook) you are interested in, you may find the data we already collected to be sufficient. The links to download these files are provided here:
 
-- `race_of_focus_140m.R` uses data from Facebook from 2020 (ADD FIGSHARE LINK FOR VAR1 FILE ONCE READY)
 - `race_of_focus_fb_2022.R` uses data from Facebook from 2022 (ADD FIGSHARE LINK FOR VAR1 FILE ONCE READY)
-- `race_of_focus_google_2020.R` uses data from Google from 2020 (ADD FIGSHARE LINK FOR VAR1 FILE ONCE READY)
 - `race_of_focus_google_2022.R` uses data from Google from 2022 (ADD FIGSHARE LINK FOR VAR1 FILE ONCE READY)
+
+Legacy scripts for 2020 datasets: 
+- `race_of_focus_140m.R` uses data from Facebook from 2020 (ADD FIGSHARE LINK FOR VAR1 FILE ONCE READY)
+- `race_of_focus_google_2020.R` uses data from Google from 2020 (ADD FIGSHARE LINK FOR VAR1 FILE ONCE READY)
 
 However, if you wish to process your own ad data, this is also possible. To do so, you will want to change the name of your data to match the pre-existing files used in the script and ensure that you add a file path within the input files section of the scripts you are using that matches the file path found on your computer. In addition, if you are processing your own ad data, you will need to run entity_linking [2020](https://github.com/Wesleyan-Media-Project/entity_linking) or [2022](https://github.com/Wesleyan-Media-Project/entity_linking_2022) again and put it as the path to path_el_results to make path_el_results correct.
 
