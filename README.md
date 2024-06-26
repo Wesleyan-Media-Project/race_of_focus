@@ -46,7 +46,7 @@ You can run the scripts in this repo in any order. Each R script in the repo act
 
 1. First, make sure you have R installed. While R can be run from the terminal, many people find it easier to use RStudio along with R. Here is a [tutorial for setting up R and RStudio](https://rstudio-education.github.io/hopr/starting.html). The script has been tried on and thus should run with no issues on R versions 4.2, 4.3 and 4.4. 
 
-2. Next, make sure you have the following packages installed in R (the exact version we used of each package is listed in the [requirements_r.txt file](https://github.com/Wesleyan-Media-Project/ABSA/blob/main/requirements_r.txt). These are the versions we tested our scripts on. Thus, scripts might also work with other versions but we have not tested this). You can install by calling:
+2. Next, make sure you have the following packages installed in R (the exact version we used of each package is listed in the [requirements_r.txt file](https://github.com/Wesleyan-Media-Project/race_of_focus/blob/main/requirements_r.txt). These are the versions we tested our scripts on. Thus, scripts might also work with other versions but we have not tested this). You can install by calling:
 
  ```R
    install.packages('purr')
