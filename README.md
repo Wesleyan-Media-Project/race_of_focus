@@ -13,7 +13,8 @@ To analyze the different dimensions of political ad transparency we have develop
 [1. Introduction](#1-introduction)  
 [2. Data](#2-data)  
 [3. Setup](#3-setup)  
-[4. Thank You!](#4-thank-you)
+[4. Directory Contents](#4-directory-contents)  
+[5. Thank You!](#5-thank-you)
 
 ## 1. Introduction
 
@@ -106,7 +107,14 @@ and can also alternatively be done through the RStudio interface.
 
 Running the `race_of_focus_fb_2022.R` script took around 20 minutes on a M2 Macbook, for reference.
 
-## 4. Thank You
+## 4. Directory Contents 
+THIS NEEDS TO BE LOOKED OVER
+* `data` : folder containing 17 files of data, including `data/pdids_for_which_race_of_focus_is_NA_2020.txt`, a file which contains the pdids, or entity level identifiers for which the race_of_focus is not available in 2020 data, as well as race_of_focus classifications in .csv and .rdata formats with separate files for all mentions, image_only and text_only appearences of candidates for Facebook 2020, Facebook 2022, Google 2020 and Google 2022 data. 
+* `race_of_focus_140m.R` : script for determining the electoral race an electoral ad is focused on based on which candidates are mentioned within it for 140m dataset.
+* `race_of_focus_fb_2022.R` : script for determining the electoral race an electoral ad is focused on based on which candidates are mentioned within it for fb_2022 dataset.
+* `race_of_focus_google_2020.R` : script for determining the electoral race an electoral ad is focused on based on which candidates are mentioned within it for google_2020 dataset.
+* `race_of_focus_google_2022.R` : script for determining the electoral race an electoral ad is focused on based on which candidates are mentioned within it for google_2022 dataset. 
+## 5. Thank You
 
 <p align="center"><strong>We would like to thank our supporters!</strong></p><br>
 
