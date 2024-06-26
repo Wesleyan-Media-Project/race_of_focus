@@ -57,6 +57,16 @@ Next, make sure you have the following packages installed in R. You can simply i
 - data.table >= 1.14.8
 - R.utils >= 2.12.2
 
+You can install the scripts by calling:
+ ```R
+   install.packages('purr')
+   install.packages("stringr")
+   install.packages("dplyr")
+   install.packages("tidyr")
+   install.packages("data.table")
+   install.packages("R.utils")
+   ```
+
 ### 3.2 Download Dataset Files
 
 The R scripts that are in the repo reference data from existing ads we collected and processed. Depending on which platform (Google or Facebook) you are interested in, you may find the data we already collected to be sufficient. The links to download these files are provided here:
