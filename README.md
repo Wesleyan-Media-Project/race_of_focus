@@ -27,6 +27,8 @@ Specifically, this repo contains two R scripts for creating the 2022 datasets wi
 
 You can use the scripts in this repo to analyze ad data beyond the data we already analyzed. Check the Setup section for detailed instructions how to do so.
 
+If you are only interested in data we have already analyzed, you can look at files present in the data folder. WRITE MORE HERE. 
+
 ## 2. Data
 
 The data created by the scripts in this repo is in Rdata and csv format. Each R scripts outputs two Rdata files and two csv format files. We give two versions to allow users to choose between the types of data that more general (csv) or more efficient for R (Rdata).
