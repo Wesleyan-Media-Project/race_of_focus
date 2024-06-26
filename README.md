@@ -95,7 +95,16 @@ Legacy scripts that were not used for creating 2022 datasets (scripts for creati
 
 You should now be able to run the script. By default, the script uses both candidate mentions and appearances. For mentions only, change the line within each script that is reading `textonly <- F` to `textonly <- T` in the repos `race_of_focus_fb_2022.R` and `race_of_focus_google_2022.R`. We provide this option to allow users to decide on race of focus using the text mentions or visual appearances of candidates .
 
-If you need some help running the script, reference [this article](https://docs.posit.co/ide/user/ide/guide/code/execution.html). Running the `race_of_focus_fb_2022.R` script took around 20 minutes on a M2 Macbook, for reference.
+Running the scripts through the terminal would look like this
+
+```bash
+cd race_of_focus_fb_2022.R
+Rscript arace_of_focus_fb_2022.R
+```
+
+and can also alternatively be done through the RStudio interface.
+
+Running the `race_of_focus_fb_2022.R` script took around 20 minutes on a M2 Macbook, for reference.
 
 ## 4. Thank You
 
