@@ -44,20 +44,10 @@ You can run the scripts in this repo in any order. Each R script in the repo act
 
 ### 3.1 Install R and Packages
 
-First, to use the scripts in this repo make sure you have R installed. In addition, while R can be ran from the terminal, many people find it easier to use RStudio along with R. You can find [RStudio here](https://rstudio-education.github.io/hopr/starting.html). Here is a [tutorial that walks you through downloading and using both programs](https://education.rstudio.com/learn/beginner/).
+1. First, make sure you have R installed. While R can be run from the terminal, many people find it easier to use RStudio along with R. Here is a [tutorial for setting up R and RStudio](https://rstudio-education.github.io/hopr/starting.html). The script has been tried on and thus should run with no issues on R versions 4.2, 4.3 and 4.4. 
 
-The script has been tried on and thus should run with no issues on R versions 4.2, 4.3 and 4.4. 
+2. Next, make sure you have the following packages installed in R (the exact version we used of each package is listed in the [requirements_r.txt file](https://github.com/Wesleyan-Media-Project/ABSA/blob/main/requirements_r.txt). These are the versions we tested our scripts on. Thus, scripts might also work with other versions but we have not tested this). You can install by calling:
 
-Next, make sure you have the following packages installed in R. You can simply install latest versions of each package. We provide a list of these packages with the earliest versions these scripts should work with [here](https://github.com/Wesleyan-Media-Project/race_of_focus/blob/main/requirements_r.txt)). The scripts might work with lower versions as well but this is not validated:
-
-- purrr >= 1.0.1
-- stringr >= 1.5.0
-- dplyr >= 1.1.0
-- tidyr >= 1.3.0      
-- data.table >= 1.14.8
-- R.utils >= 2.12.2
-
-You can install the scripts by calling:
  ```R
    install.packages('purr')
    install.packages("stringr")
