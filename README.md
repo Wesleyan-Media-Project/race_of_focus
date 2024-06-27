@@ -27,7 +27,7 @@ Specifically, this repo contains two R scripts for creating the 2022 datasets wi
 
 You can use the scripts in this repo to analyze ad data beyond the data we already analyzed. Check the Setup section for detailed instructions how to do so.
 
-If you are only interested in data we have already analyzed, you can look at files present in the data folder. WRITE MORE HERE. 
+If you are only interested in data we have already analyzed, you can look at files present in the data folder. There are csv files and Rdata files with the oututs of race_of_focus scripts present there for Google 2020, Google 2022, Facebook 2020 (refered to as 140m) and Facebook 2022 data. There are three kinds of files present for each source: imageonly, textonly and general. 
 
 ## 2. Data
 
