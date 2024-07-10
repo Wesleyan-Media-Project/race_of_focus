@@ -10,7 +10,7 @@ library(haven)
 textonly <- F
 
 # Input files
-path_google_2020_vars <- "../google_2020/google_2020_adid_var1.csv.gz"
+path_google_2020_vars <- "../datasets/google/google_2020_adid_var1.csv.gz"
 path_el_results <- "../entity_linking/google/data/entity_linking_results_google_2020_notext_combined.csv.gz"
 path_wmpent <- "../datasets/wmp_entity_files/Google/2020/wmp_google_entities_v040521.dta"
 path_cand <- "../datasets/candidates/cand2020_05192022.csv"
