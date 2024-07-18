@@ -67,9 +67,9 @@ The R scripts that are in the repo reference data from existing ads we collected
 - [`race_of_focus_fb_2022.R`](https://figshare.wesleyan.edu/account/articles/26093254) uses data from Facebook from 2022.
 - [`race_of_focus_google_2022.R`](https://figshare.wesleyan.edu/account/articles/26124349) uses data from Google from 2022.
 
-Legacy scripts for 2020 datasets: 
+Legacy scripts for 2020 datasets, preserved here for internal use: 
 - [`race_of_focus_140m.R`](https://figshare.wesleyan.edu/account/articles/26093254) uses data from Facebook from 2020.
-- `race_of_focus_google_2020.R` uses data from Google from 2020 (ADD FIGSHARE LINK FOR VAR1 FILE ONCE READY)
+- [`race_of_focus_google_2020.R`](https://github.com/Wesleyan-Media-Project/datasets/blob/main/google/google_2020_adid_var1.csv.gz) uses data from Google from 2020. Note that this file is different from others listed above, as it is hosted on Github as opposed to on Figshare. 
 
 However, if you wish to process your own ad data, this is also possible. To do so, you will want to change the name of your data to match the pre-existing files used in the script and ensure that you add a file path within the input files section of the scripts you are using that matches the file path found on your computer. In addition, if you are processing your own ad data, you will need to run entity_linking [2020](https://github.com/Wesleyan-Media-Project/entity_linking) or [2022](https://github.com/Wesleyan-Media-Project/entity_linking_2022) again and put it as the path to path_el_results to make path_el_results correct.
 
@@ -89,7 +89,7 @@ Running the two main scripts for 2022 datasets `race_of_focus_fb_2022.R` and `ra
 - [`entity_linking_2022`](https://github.com/Wesleyan-Media-Project/entity_linking_2022)
 - [`datasets`](https://github.com/Wesleyan-Media-Project/datasets)
 
-Legacy scripts that were not used for creating 2022 datasets (scripts for creating 2020 datasets): 
+Legacy scripts that were not used for creating 2022 datasets (scripts for creating 2020 datasets), preserved here for internal use: 
 - `race_of_focus_140m.R`
 - `race_of_focus_google_2020.R`
 
@@ -111,9 +111,9 @@ Running the `race_of_focus_fb_2022.R` script took around 20 minutes on a M2 Macb
 
 ## 4. Directory Contents 
 * `data` : Folder containing 17 files of data, including `data/pdids_for_which_race_of_focus_is_NA_2020.txt`, a file which contains the pdids, or entity level identifiers for which the race_of_focus is not available in 2020 data, as well as race_of_focus classifications in .csv and .rdata formats with separate files for all mentions, image_only and text_only appearences of candidates for Facebook 2020, Facebook 2022, Google 2020 and Google 2022 data. 
-* `race_of_focus_140m.R` : Legacy script for determining the electoral race an electoral ad is focused on based on which candidates are mentioned within it for 140m dataset.
+* `race_of_focus_140m.R` : Legacy script for determining the electoral race an electoral ad is focused on based on which candidates are mentioned within it for 140m dataset, preserved here for internal use.
 * `race_of_focus_fb_2022.R` : Script for determining the electoral race an electoral ad is focused on based on which candidates are mentioned within it for fb_2022 dataset.
-* `race_of_focus_google_2020.R` : Legacy script for determining the electoral race an electoral ad is focused on based on which candidates are mentioned within it for google_2020 dataset.
+* `race_of_focus_google_2020.R` : Legacy script for determining the electoral race an electoral ad is focused on based on which candidates are mentioned within it for google_2020 dataset, preserved here for internal use.
 * `race_of_focus_google_2022.R` : Script for determining the electoral race an electoral ad is focused on based on which candidates are mentioned within it for google_2022 dataset. 
 ## 5. Thank You
 
