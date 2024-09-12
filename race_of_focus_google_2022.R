@@ -13,21 +13,16 @@ textonly <- F
 #goggle files
 path_g2022_vars <- "../data_post_production/g2022_adid_01062021_11082022_var1.csv.gz"
 g2022 <- fread(path_g2022_vars, encoding = "UTF-8")
-
 #entity linking files
 path_el_results <- "../entity_linking_2022/google/data/entity_linking_results_google_2022_notext_combined.csv.gz"
 entity <- fread(path_el_results, encoding = "UTF-8")
 
 path_wmpent <- "../datasets/wmp_entity_files/Google/wmp_google_2022_entities_v112822.csv"
-wmpent <- fread(path_wmpent, encoding = "UTF-8")
 
 #candidate files
 path_cand <- "../datasets/candidates/wmpcand_120223_wmpid.csv"
-cand2022 <- fread(path_cand, encoding = "UTF-8")
-
 #faces
 path_cand_pol <- "../datasets/people/person_2022.csv"
-pol <- fread(path_cand_pol, encoding = "UTF-8")
 
 
 # Output files
@@ -50,7 +45,7 @@ g2022 <- g2022 %>%
   mutate(aws_face = sub(",+$", "", aws_face))
 
 # Read Google 2022 variables file
-g2022 %>%
+g2022 <- g2022 %>%
   select(ad_id, advertiser_id, geo_targeting_included, aws_face)
 
 full_size <- nrow(g2022)
@@ -60,32 +55,49 @@ entity2 <- entity[match(g2022$ad_id, entity$ad_id),]
 g2022$detected_entities <- entity2$detected_entities
 
 # WMP entities file
+wmp_ents <- fread(path_wmpent, encoding = "UTF-8")
 # Keep only relevant columns
-wmpent2 <- wmpent %>% 
-  select(advertiser_id, wmp_spontype_new, wmp_office, hse_fecid, sen_fecid)
-
-wmpent2 <- wmpent2 %>%
-  mutate(fecid_formerge = coalesce(sen_fecid, hse_fecid))
-
-wmpent3 <- wmpent2 %>% 
-  select(advertiser_id, wmp_spontype_new, wmp_office, fecid_formerge)
-
+wmp_ents_all <- wmp_ents
+wmp_ents <- wmp_ents %>% 
+  select(advertiser_id, wmp_spontype, wmp_office, wmpid)
 
 # Merge with candidates file for district
-cand2022$cand_office_dist <- sprintf("%02d", cand2022$cand_office_dist)
+cands <- fread(path_cand, encoding = "UTF-8")
 
-cand2022$office <- paste(cand2022$cand_office_st, cand2022$cand_office_dist, sep = "")
+cands <- cands %>%
+  filter(genelect_cd == 1)
 
-cand2022_2 <- cand2022 %>%
-  select(cand_id, office, wmpid) %>%
-  # Remove duplicate rows
+cands$cand_office_dist[cands$cand_office == "H"] <- str_pad(cands$cand_office_dist[cands$cand_office == "H"], side = "left", pad = "0", width = 2)
+cands$cand_office_dist[cands$cand_office == "S"] <- "S0"
+cands$office <- paste(cands$cand_office_st, cands$cand_office_dist, sep = "")
+cands <- cands %>%
+  select(wmpid, office) %>%
+  # Remove duplicate rows (only does anything in 2020, but keeping it for potential future use)
   filter(!duplicated(.))
 
-wmpent4 <- wmpent3 %>% left_join(cand2022_2, c("fecid_formerge" = "cand_id"))
+wmp_ents <- wmp_ents %>% left_join(cands, "wmpid")
 
-# Then merge into google
-g2022_2 <- g2022 %>% left_join(wmpent4, "advertiser_id")
+# Add office for candidates who aren't in the candidate file, but have an office in the WMP entity file
+wmp_ents_all$office <- paste0(wmp_ents_all$hse_state, str_pad(wmp_ents_all$hse_district, 2, "left", "0"))
+wmp_ents_all$office[!is.na(wmp_ents_all$sen_state) & wmp_ents_all$sen_state != ""] <- paste0(wmp_ents_all$sen_state[!is.na(wmp_ents_all$sen_state) & wmp_ents_all$sen_state != ""], "S0")
+wmp_ents_all$office[wmp_ents_all$office == "NA"] <- NA
 
+# This should be empty
+for(i in 1:nrow(wmp_ents)) {
+  if(!is.na(wmp_ents$wmp_spontype[i]) && wmp_ents$wmp_spontype[i] == "campaign" && 
+     wmp_ents$wmp_office[i] %in% c("us house", "us senate") && is.na(wmp_ents$office[i])) {
+    
+    matched_idx <- match(wmp_ents$pd_id[i], wmp_ents_all$pd_id)
+    
+    # Ensure that matched_idx is not NULL or NA before assignment
+    if (!is.na(matched_idx) && length(matched_idx) > 0) {
+      wmp_ents$office[i] <- wmp_ents_all$office[matched_idx]
+    }
+  }
+}
+
+# Then merge into Google 2022
+g2022_2 <- g2022 %>% left_join(wmp_ents, "advertiser_id")
 
 # Mentions ####
 
@@ -140,7 +152,7 @@ g2022_3$all_entities[unlist(lapply(g2022_3$all_entities, length)) == 0] <- ""
 g2022_3$all_unique_entities <- lapply(g2022_3$all_entities, unique)
 # Get the races of the ad's unique entities
 g2022_3$all_unique_entities_races <- lapply(g2022_3$all_unique_entities, 
-                                            function(x){cand2022_2$office[match(x, cand2022_2$wmpid)]})
+                                            function(x){cands$office[match(x, cands$wmpid)]})
 # Get the unique races
 g2022_3$all_unique_entities_unique_races <- lapply(g2022_3$all_unique_entities_races, unique)
 # How many unique races?
@@ -152,7 +164,7 @@ g2022_3$all_unique_entities_no_pres <- lapply(g2022_3$all_unique_entities,
 g2022_3$all_unique_entities_no_pres[lapply(g2022_3$all_unique_entities_no_pres, length) == 0] <- ""
 # Get the races of the ad's unique entities
 g2022_3$all_unique_entities_races_no_pres <- lapply(g2022_3$all_unique_entities_no_pres, 
-                                                    function(x){cand2022_2$office[match(x, cand2022_2$wmpid)]})
+                                                    function(x){cands$office[match(x, cands$wmpid)]})
 # Get the unique races
 g2022_3$all_unique_entities_unique_races_no_pres <- lapply(g2022_3$all_unique_entities_races_no_pres, unique)
 # How many unique races?
