@@ -29,6 +29,8 @@ You can use the scripts in this repo to analyze ad data beyond the data we alrea
 
 If you are only interested in data we have already analyzed, you can look at files present in the data folder. There are csv files and Rdata files with the oututs of race_of_focus scripts present there for Google 2020, Google 2022, Facebook 2020 (refered to as 140m) and Facebook 2022 data. There are three kinds of files present for each source: imageonly, textonly and general. 
 
+For reference, whenever we reference the race of focus of a candidate, we are referencing the office for which that candidate is running. 
+
 ## 2. Data
 
 The data created by the scripts in this repo is in Rdata and csv format. Each R scripts outputs two Rdata files and two csv format files. We give two versions to allow users to choose between the types of data that more general (csv) or more efficient for R (Rdata).
