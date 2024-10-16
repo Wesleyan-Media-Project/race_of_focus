@@ -64,14 +64,14 @@ You can run the scripts in this repo in any order. Each R script in the repo act
 
 ### 3.2 Download Dataset Files
 
-The R scripts that are in the repo reference data from existing ads we collected and processed. Depending on which platform (Google or Facebook) you are interested in, you may find the data we already collected to be sufficient. The links to download these files are provided here:
+The R scripts that are in the repo reference data from existing ads we collected and processed. Depending on which platform (Google or Facebook) you are interested in, you may find the data we already collected to be sufficient. To download these files follow this link to [Figshare](https://www.creativewmp.com/data-access/). You will fill out a form and then immediately get data access.  
 
-- [`race_of_focus_fb_2022.R`](https://figshare.wesleyan.edu/account/articles/26093254) uses data from Facebook from 2022.
-- [`race_of_focus_google_2022.R`](https://figshare.wesleyan.edu/account/articles/26124349) uses data from Google from 2022.
+- `race_of_focus_fb_2022.R` uses data from Facebook from 2022, specifically the data labeled as `fb 2022 adid var 1` on our Figshare.
+- `race_of_focus_google_2022.R` uses data from Google from 2022, specifically the data labeled as `g2022 adid var 1`  on our Figshare.
 
 Legacy scripts for 2020 datasets, preserved here for internal use: 
-- [`race_of_focus_140m.R`](https://figshare.wesleyan.edu/account/articles/26093254) uses data from Facebook from 2020.
-- [`race_of_focus_google_2020.R`](https://github.com/Wesleyan-Media-Project/datasets/blob/main/google/google_2020_adid_var1.csv.gz) uses data from Google from 2020. Note that this file is different from others listed above, as it is hosted on Github as opposed to on Figshare. 
+- `race_of_focus_140m.R` uses data from Facebook from 2020.
+- `race_of_focus_google_2020.R`(https://github.com/Wesleyan-Media-Project/datasets/blob/main/google/google_2020_adid_var1.csv.gz) uses data from Google from 2020. Note that this file is different from others listed above, as it is hosted on Github as opposed to on Figshare. 
 
 However, if you wish to process your own ad data, this is also possible. To do so, you will want to change the name of your data to match the pre-existing files used in the script and ensure that you add a file path within the input files section of the scripts you are using that matches the file path found on your computer. In addition, if you are processing your own ad data, you will need to run [entity_linking](https://github.com/Wesleyan-Media-Project/entity_linking_2022) and put it as the path to path_el_results to make path_el_results correct.
 
