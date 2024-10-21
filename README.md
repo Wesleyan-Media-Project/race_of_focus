@@ -71,7 +71,7 @@ The R scripts that are in the repo reference data from existing ads we collected
 
 Legacy scripts for 2020 datasets, preserved here for internal use: 
 - `race_of_focus_140m.R` uses data from Facebook from 2020. This data will be made available when it is ready. 
-- `race_of_focus_google_2020.R`(https://github.com/Wesleyan-Media-Project/datasets/blob/main/google/google_2020_adid_var1.csv.gz) uses data from Google from 2020. Note that this file is different from others listed above, as it is hosted on Github as opposed to on Figshare. 
+- `race_of_focus_google_2020.R(https://github.com/Wesleyan-Media-Project/datasets/blob/main/google/google_2020_adid_var1.csv.gz)` uses data from Google from 2020. Note that this file is different from others listed above, as it is hosted on Github as opposed to on Figshare. 
 
 However, if you wish to process your own ad data, this is also possible. To do so, you will want to change the name of your data to match the pre-existing files used in the script and ensure that you add a file path within the input files section of the scripts you are using that matches the file path found on your computer. In addition, if you are processing your own ad data, you will need to run [entity_linking](https://github.com/Wesleyan-Media-Project/entity_linking_2022) and put it as the path to path_el_results to make path_el_results correct.
 
