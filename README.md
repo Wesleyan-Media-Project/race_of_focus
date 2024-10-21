@@ -70,7 +70,7 @@ The R scripts that are in the repo reference data from existing ads we collected
 - `race_of_focus_google_2022.R` uses data from Google from 2022, specifically the data labeled as `g2022 adid var 1`  on our Figshare.
 
 Legacy scripts for 2020 datasets, preserved here for internal use: 
-- `race_of_focus_140m.R` uses data from Facebook from 2020.
+- `race_of_focus_140m.R` uses data from Facebook from 2020. This data will be made available when it is ready. 
 - `race_of_focus_google_2020.R`(https://github.com/Wesleyan-Media-Project/datasets/blob/main/google/google_2020_adid_var1.csv.gz) uses data from Google from 2020. Note that this file is different from others listed above, as it is hosted on Github as opposed to on Figshare. 
 
 However, if you wish to process your own ad data, this is also possible. To do so, you will want to change the name of your data to match the pre-existing files used in the script and ensure that you add a file path within the input files section of the scripts you are using that matches the file path found on your computer. In addition, if you are processing your own ad data, you will need to run [entity_linking](https://github.com/Wesleyan-Media-Project/entity_linking_2022) and put it as the path to path_el_results to make path_el_results correct.
@@ -79,9 +79,7 @@ If you are using data from existing ads we collected and processed, then you can
 
 Given that you are using data from existing ads we collected and processed, keep in mind that there is no correct order for the R scripts in this repo to be ran. Each R script is ran independently and is based on different data.
 
-You can find the exact files needed for each script by looking at the code in the R script that you are running and specifically at what is under #Input files. For example, `path_140m_vars <- "../fb_2020/fb_2020_140m_adid_var1.csv.gz"` means that you need the file `fb_2020_140m_adid_var1.csv.gz`.
-
-Some of the files needed are not actually in the GitHub directories due to being too large. Instead, these are available on Figshare. These include the files that are used in the first line of code after #Input Files.
+You can find the exact files needed for each script by looking at the code in the R script that you are running and specifically at what is under #Input files. For example, `path_140m_vars <- "../fb_2020/fb_2020_140m_adid_var1.csv.gz"` means that you need the file `fb_2020_140m_adid_var1.csv.gz`, which is hosted on our Figshare (discussed at the very begining of this section).
 
 Here are dependency repos or steps you will need to follow before running this repo. The outputs from these scripts are used as input files in race of focus scripts.
 
