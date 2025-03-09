@@ -7,12 +7,13 @@ library(haven)
 
 # Option to use only the text-based fields to decide race of focus
 # Set to False by default
-textonly <- F
+textonly <- T
 
 ####Input Files####
 #goggle files
-path_g2022_vars <- "../data_post_production/g2022_adid_01062021_11082022_var1.csv.gz"
+path_g2022_vars <- "../data_post_production/g2022_adid_var1.csv.gz"
 g2022 <- fread(path_g2022_vars, encoding = "UTF-8")
+
 #entity linking files
 path_el_results <- "../entity_linking_2022/google/data/entity_linking_results_google_2022_notext_combined.csv.gz"
 entity <- fread(path_el_results, encoding = "UTF-8")
@@ -32,7 +33,7 @@ path_out_csv <- "data/race_of_focus_google_2022.csv"
 path_out_csv_textonly <- "data/race_of_focus_google_2022_textonly.csv"
 
 ####Process####
-# g2022: combine aws columns 
+# g2022: combine aws columns (the two lines here might not be necessary anymore)
 g2022$aws_face_vid <- str_replace_all(g2022$aws_face_vid, ";", ",")
 g2022$aws_face_img <- str_replace_all(g2022$aws_face_img, ";", ",")
 # Combine two columns with values separated by commas
